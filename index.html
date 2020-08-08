@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js\react.development.js"></script>
+    <script src="js\react-dom.development.js"></script>
+    <script src="js\babel.min.js"></script>
+    <link rel="stylesheet" href="covid.css">
+    <title>COVID</title>
+    
+</head>
+<body>
+    <h3>COVID 19 TRACKER DATA</h3><br>
+    <div></div>
+    <table>
+        <thead>
+                <th>NO</th>
+                <th>COUNTRY</th>
+                <th>CONFIRMED</th>
+                <th>DEATHS</th>
+                <th>RECOVERED</th>
+                <th>ACTIVE</th>
+        </thead>
+          <tbody id="root">
+          </tbody>
+    </table>
+
+    <div id="root"></div>
+    <script type="text/jsx">
+        let data=[{id:1, country:"Italy",confirmed:"3474",deaths:"472",recovered:"2812",active:"190"},
+        {id:2, country:"Canada",confirmed:"11430",deaths:"208",recovered:"10097",active:"1125"},
+        {id:3, country:"Brazil",confirmed:"21376",deaths:"556",recovered:"14806",active:"6014"},
+        {id:4, country:"United Kingdom",confirmed:"9",deaths:"1",recovered:"7",active:"1"},
+        {id:5, country:"Russia",confirmed:"2930",deaths:"21",recovered:"2254", active:"655"},
+        {id:6, country:"Ukraine",confirmed:"6477",deaths:"222",recovered:"5077",active:"1178"},
+        {id:6, country:"Sweden",confirmed:"514",deaths:"15",recovered:"0",active:"499"},
+        {id:7, country:"Italy",confirmed:"1283",deaths:"97",recovered:"1089",active:"97"},
+        {id:8, country:"Peru", confirmed:"6003", deaths:"139",recovered:"0",active:"5864"},
+        {id:9, country:"Denmark",confirmed:"291",deaths:"0", recovered:"192",active:"99"},
+        {id:10, country:"Chile",confirmed:"3703", deaths:"68", recovered:"3391",active:"244"},
+
+];
+function App (props) {
+    console.log(props)
+    return (
+            <tr>
+                <td>{props.id}</td>
+                <td> {props.country}</td> 
+                <td>{props.confirmed}</td> 
+                <td>{props.deaths}</td>
+                <td> {props.recovered}</td> 
+                <td>{props.active}</td>
+            </tr>
+    );
+}
+    
+let covidApp=data.map(i=> <App  id={i.id} country={i.country} confirmed={i.confirmed} deaths={i.deaths} recovered={i.recovered} active={i.active} />);
+ReactDOM.render(
+  <React.StrictMode>
+  {covidApp}
+  </React.StrictMode>, document.getElementById ("root"));
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
